@@ -15,7 +15,7 @@ DATABASES = {
         "database": env("SQLITE_DB_DATABASE", "masonite.sqlite3"),
         "prefix": "",
         "log_queries": env("DB_LOG"),
-    },
+    }, 
     "mysql": {
         "driver": "mysql",
         "host": env("DB_HOST"),

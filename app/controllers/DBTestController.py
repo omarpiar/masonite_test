@@ -22,7 +22,7 @@ class DBTestController(Controller):
                 INSERT INTO usuarios_prueba (nombre, correo)
                 VALUES (%s, %s)
             """
-            valores = ("Usuario Test para la bd en la web", "test@masonite.com")
+            valores = ("rafas", "rafas@gmail.com")
 
             cursor.execute(sql, valores)
             conexion.commit()

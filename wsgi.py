@@ -1,6 +1,7 @@
+
 from masonite.foundation import Application, Kernel
 from masonite.utils.location import base_path
-from masonite.configuration import config 
+from masonite.configuration import config
 
 from Kernel import Kernel as ApplicationKernel
 
@@ -13,4 +14,5 @@ application.register_providers(Kernel, ApplicationKernel)
 """Now Bind important application specific providers needed to make the application work."""
 application.add_providers(*config("providers.providers"))
 
+# 🔴 ESTA LÍNEA ES LA CLAVE PARA RENDER
 app = application
