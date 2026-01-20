@@ -1,27 +1,5 @@
-# requirements_fixed.txt
-# Guarda como requirements.txt
-
-# Core Masonite
-masonite==4.8.1
-masonite-orm==1.6.5
-
-# Dependencias con versiones fijas para compatibilidad
-pendulum==2.1.2
-cleo==2.1.0
-cryptography==42.0.5
-click==8.1.7
-
-# Database
-mysqlclient==2.2.4
-
-# Server
-gunicorn==21.2.0
-whitenoise==6.6.0
-
-# Utilities
-python-dotenv==1.0.0
-Jinja2==3.1.4
-
-# System
-setuptools==70.0.0
-wheel==0.43.0
+masonite>=4.0,<5.0
+masonite-orm>=2.0,<3.0
+pendulum<3.0
+gunicorn
+mysql-connector-python
