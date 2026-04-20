@@ -1,6 +1,6 @@
 flask==3.0.3
 python-dotenv==1.0.1
-pyodbc==5.1.0
+pyodbc==5.0.1
 PyJWT==2.8.0
 bcrypt==4.2.0
 cloudinary==1.40.0
