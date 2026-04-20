@@ -37,6 +37,36 @@ def not_found(e):
 def server_error(e):
     return render_template('error.html', code=500, message=str(e) or 'Ocurrió un error inesperado.'), 500
 
+# Al final de app.py, antes del if __name__ == '__main__'
+@app.route('/debug/status')
+def debug_status():
+    """Endpoint temporal para debuggear"""
+    from config.db import test_connection, execute_scalar
+    
+    result = {
+        'app': 'Masonite Dashboard',
+        'status': 'running',
+        'python_version': sys.version,
+    }
+    
+    # Probar DB
+    try:
+        db_test = test_connection()
+        result['database'] = db_test
+        
+        if db_test['success']:
+            # Contar usuarios
+            user_count = execute_scalar("SELECT COUNT(*) as total FROM Usuario")
+            result['total_usuarios'] = user_count['total'] if user_count else 0
+            
+            # Ver primer usuario
+            first_user = execute_scalar("SELECT TOP 1 strNombreUsuario FROM Usuario")
+            result['primer_usuario'] = first_user['strNombreUsuario'] if first_user else None
+    except Exception as e:
+        result['database_error'] = str(e)
+    
+    return result
+
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 3000))
     app.run(host='0.0.0.0', port=port)
